@@ -1,0 +1,1981 @@
+---
+title: 'TEMA01 - NÍVEL DE ATIVIDADE'
+subtitle: 'ECN001 - IEPG20'
+author: 'Prof. Dr. Victor Valerio'
+institute: 'UNIVERSIDADE FEDERAL DE ITAJUBÁ'
+date: 'Última Atualização: `r format(Sys.Date(),"%d-%m-%Y")`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+
+```{r, results = 'asis', echo = F, warning = F, message = F, error = F, fig.align ='center'}
+
+
+library(xaringanExtra)
+library(xaringanthemer)
+
+
+style_mono_accent(base_color = "#1c5253",
+                  text_font_size = '30px',
+                  header_h1_font_size = '3rem',
+                  header_h2_font_size = '2rem',
+                  header_h3_font_size = '1.5rem')
+
+
+use_scribble()
+use_search(show_icon = TRUE)
+
+
+```
+
+## TÓPICOS ABORDADOS
+
+
+- [**Identidades Macroeconômicas**](#introducao)
+
+
+- [**Produto Agregado e Produto Interno Bruto (PIB)**](#pib)
+
+
+- [**Fluxo Circular da Renda (Simplificado)**](#fcr_simplificado)
+
+
+- [**Fluxo Circular da Renda (Ampliado)**](#fcr_ampliado)
+
+
+- [**Análise dos Componentes da Demanda**](#demanda)
+
+
+- [**Análise de Indicadores de Conjuntura**](#conjuntura)
+
+
+- [**PIB Potencial e Hiato do Produto**](#conjuntura)
+
+
+
+
+
+---
+class: inverse, center, middle 
+name: introducao
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+**CONCEITOS**
+  
+  
+- Para entender o funcionamento básico da economia de um país é útil iniciar a apresentação por meio 
+da definição de 3 conceitos iniciais da macroeconomia, são eles:
+  
+
+  - **PRODUTO AGREGADO** (OU OFERTA AGREGADA);
+  
+  - **RENDA AGREGADA**;
+  
+  - **DEMANDA AGREGADA** (OU DESPESA AGREGADA/CONSUMO AGREGADO).
+  
+  
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+- **PRODUTO AGREGADO**: Corresponde a **soma de valores (R$)** de todos os **bens (ou serviços) finais** 
+produzidos em um determinado **país** em um determinado **período de tempo** (**variável de fluxo**).
+
+
+$$ Produto \ Agregado = \sum_{x = 1}^{n}P_iQ_i$$
+$P_i =$ Preço do **bem (ou serviço) final** i;
+  
+$Q_i =$ Quantidade produzida do **bem (ou serviço) final** i;
+  
+$i =$ **bem (ou serviço) final** $(i = 1, 2, 3, ..., n)$
+  
+  
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+- **BEM (OU SERVIÇO) FINAL**: São bens e serviços que **não são utilizados** em nenhuma etapa de um 
+processo de produção, isto é, não são insumos de produção. 
+
+- **BEM (OU SERVIÇO) INTERMEDIÁRIO**: São bens e serviços que **são utilizados** em nenhuma etapa de um 
+processo de produção, isto é, são insumos de produção. 
+
+- Para entender melhor a definição de produto agregado, bens finais e bens intermediários, vamos 
+partir de um exemplo teórico de uma economia que produz apenas um bem final: o pão.
+
+
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+**PREMISSAS DO EXEMPLO TEÓRICA**
+
+
+  - **3 Processos Produtivos**: Produção de Trigo, Produção de Farinha de Trigo e 
+  Produção de Pão;
+  
+  - **Bens Intermediários**: Trigo e Farinha (são insumos de produção);
+  
+  - **Bens Finais**: Pão (não é insumo de produção).
+  
+  
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+```{r , results = 'asis', echo = F, warning = F, message = F, error = F, fig.align ='center', out.width = '100%'}
+
+
+library(magrittr)
+
+
+library(kableExtra)
+
+
+cronograma <- data.frame(
+  
+  a = c('TRIGO', 'FARINHA', 'PÃO'),
+  
+  b = c('R$ 0', 'R$ 15', 'R$ 35'),
+  
+  c = c('R$ 15', 'R$ 35', 'R$ 60'),
+  
+  d = c('R$ 15', 'R$ 20', 'R$ 25'))
+
+knitr::kable(cronograma, 
+             
+             escape = FALSE,
+    
+             format = 'html',
+             
+             col.names = c('PRODUTO', 'PREÇO DO INSUMO (custo de produção)', 
+                           
+                           'PREÇO DO PRODUTO (preço de venda)', 
+                           
+                           'VALOR ADICIONADO (valor agregado)'),
+             
+             align = c('c', 'c', 'c', 'c')) %>%
+  
+  kable_styling(bootstrap_options = 'striped')
+  
+
+```
+
+
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+```{r , results = 'asis', echo = F, warning = F, message = F, error = F, fig.align ='center', out.width = '100%'}
+
+
+library(magrittr)
+
+
+library(kableExtra)
+
+
+cronograma <- data.frame(
+  
+  a = c('TRIGO', 'FARINHA', 'PÃO'),
+  
+  b = c('R$ 0', 'R$ 15', 'R$ 35'),
+  
+  c = c('R$ 15', 'R$ 35', 'R$ 60'),
+  
+  d = c('R$ 15', 'R$ 20', 'R$ 25'))
+
+knitr::kable(cronograma, 
+             
+             escape = FALSE,
+    
+             format = 'html',
+             
+             col.names = c('PRODUTO', 'PREÇO DO INSUMO (custo de produção)', 
+                           
+                           'PREÇO DO PRODUTO (preço de venda)', 
+                           
+                           'VALOR ADICIONADO (valor agregado)'),
+             
+             align = c('c', 'c', 'c', 'c')) %>%
+  
+  kable_styling(bootstrap_options = 'striped')
+  
+
+```
+
+  - Como existem 3 processos produtivos, também existem **3 custos de produção** 
+  e 3 **preços de venda** (um para cada processo produtivo), sendo que, o custo 
+  de produção de um processo de produção é igual ao preço de venda do processo
+  de produção anterior (ou processo de produção fornecedor);
+
+
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+```{r , results = 'asis', echo = F, warning = F, message = F, error = F, fig.align ='center', out.width = '100%'}
+
+
+library(magrittr)
+
+
+library(kableExtra)
+
+
+cronograma <- data.frame(
+  
+  a = c('TRIGO', 'FARINHA', 'PÃO'),
+  
+  b = c('R$ 0', 'R$ 15', 'R$ 35'),
+  
+  c = c('R$ 15', 'R$ 35', 'R$ 60'),
+  
+  d = c('R$ 15', 'R$ 20', 'R$ 25'))
+
+knitr::kable(cronograma, 
+             
+             escape = FALSE,
+    
+             format = 'html',
+             
+             col.names = c('PRODUTO', 'PREÇO DO INSUMO (custo de produção)', 
+                           
+                           'PREÇO DO PRODUTO (preço de venda)', 
+                           
+                           'VALOR ADICIONADO (valor agregado)'),
+             
+             align = c('c', 'c', 'c', 'c')) %>%
+  
+  kable_styling(bootstrap_options = 'striped')
+  
+
+```
+  
+  - Em cada processo de produção, a **diferença entre o preço de venda e o custo 
+  de produção** gera o respectivo **valor adicionado** (ou valor agregado).
+  
+
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+```{r , results = 'asis', echo = F, warning = F, message = F, error = F, fig.align ='center', out.width = '100%'}
+
+
+library(magrittr)
+
+
+library(kableExtra)
+
+
+cronograma <- data.frame(
+  
+  a = c('TRIGO', 'FARINHA', 'PÃO'),
+  
+  b = c('R$ 0', 'R$ 15', 'R$ 35'),
+  
+  c = c('R$ 15', 'R$ 35', 'R$ 60'),
+  
+  d = c('R$ 15', 'R$ 20', 'R$ 25'))
+
+knitr::kable(cronograma, 
+             
+             escape = FALSE,
+    
+             format = 'html',
+             
+             col.names = c('PRODUTO', 'PREÇO DO INSUMO (custo de produção)', 
+                           
+                           'PREÇO DO PRODUTO (preço de venda)', 
+                           
+                           'VALOR ADICIONADO (valor agregado)'),
+             
+             align = c('c', 'c', 'c', 'c')) %>%
+  
+  kable_styling(bootstrap_options = 'striped')
+  
+
+```
+
+  - O valor de venda de um processo de produção é igual a soma entre o custo de 
+  produção e o valor adicionado do respectivo processo;
+  
+
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+```{r , results = 'asis', echo = F, warning = F, message = F, error = F, fig.align ='center', out.width = '100%'}
+
+
+library(magrittr)
+
+
+library(kableExtra)
+
+
+cronograma <- data.frame(
+  
+  a = c('TRIGO', 'FARINHA', 'PÃO'),
+  
+  b = c('R$ 0', 'R$ 15', 'R$ 35'),
+  
+  c = c('R$ 15', 'R$ 35', 'R$ 60'),
+  
+  d = c('R$ 15', 'R$ 20', 'R$ 25'))
+
+knitr::kable(cronograma, 
+             
+             escape = FALSE,
+    
+             format = 'html',
+             
+             col.names = c('PRODUTO', 'PREÇO DO INSUMO (custo de produção)', 
+                           
+                           'PREÇO DO PRODUTO (preço de venda)', 
+                           
+                           'VALOR ADICIONADO (valor agregado)'),
+             
+             align = c('c', 'c', 'c', 'c')) %>%
+  
+  kable_styling(bootstrap_options = 'striped')
+  
+
+```
+ 
+  - Por sua vez, o custo de produção de um processo produtivo é igual ao valor 
+  de venda do processo de produção anterior (ou do processo de produção do 
+  fornecedor). Assim, o valor de venda de um produto já leva em consideração os 
+  valores de venda dos processos produtivos anteriores;
+
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+```{r , results = 'asis', echo = F, warning = F, message = F, error = F, fig.align ='center', out.width = '100%'}
+
+
+library(magrittr)
+
+
+library(kableExtra)
+
+
+cronograma <- data.frame(
+  
+  a = c('TRIGO', 'FARINHA', 'PÃO'),
+  
+  b = c('R$ 0', 'R$ 15', 'R$ 35'),
+  
+  c = c('R$ 15', 'R$ 35', 'R$ 60'),
+  
+  d = c('R$ 15', 'R$ 20', 'R$ 25'))
+
+knitr::kable(cronograma, 
+             
+             escape = FALSE,
+    
+             format = 'html',
+             
+             col.names = c('PRODUTO', 'PREÇO DO INSUMO (custo de produção)', 
+                           
+                           'PREÇO DO PRODUTO (preço de venda)', 
+                           
+                           'VALOR ADICIONADO (valor agregado)'),
+             
+             align = c('c', 'c', 'c', 'c')) %>%
+  
+  kable_styling(bootstrap_options = 'striped')
+  
+
+```
+  
+  - Por este motivo, o Produto Agregado não soma os valores de venda de cada 
+  produto, evitando o **erro da dupla contagem**.
+  
+  
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+```{r , results = 'asis', echo = F, warning = F, message = F, error = F, fig.align ='center', out.width = '100%'}
+
+
+library(magrittr)
+
+
+library(kableExtra)
+
+
+cronograma <- data.frame(
+  
+  a = c('TRIGO', 'FARINHA', 'PÃO'),
+  
+  b = c('R$ 0', 'R$ 15', 'R$ 35'),
+  
+  c = c('R$ 15', 'R$ 35', 'R$ 60'),
+  
+  d = c('R$ 15', 'R$ 20', 'R$ 25'))
+
+knitr::kable(cronograma, 
+             
+             escape = FALSE,
+    
+             format = 'html',
+             
+             col.names = c('PRODUTO', 'PREÇO DO INSUMO (custo de produção)', 
+                           
+                           'PREÇO DO PRODUTO (preço de venda)', 
+                           
+                           'VALOR ADICIONADO (valor agregado)'),
+             
+             align = c('c', 'c', 'c', 'c')) %>%
+  
+  kable_styling(bootstrap_options = 'striped')
+  
+
+```
+
+
+- No exemplo do pão, ao se somar os valores totais de produção de cada processo 
+produtivo, tem-se que O valor total do processo produtivo trigo é somado três vezes
+e o valor total do processo produtivo da farinha é somado duas vezes;
+
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+```{r , results = 'asis', echo = F, warning = F, message = F, error = F, fig.align ='center', out.width = '100%'}
+
+
+library(magrittr)
+
+
+library(kableExtra)
+
+
+cronograma <- data.frame(
+  
+  a = c('TRIGO', 'FARINHA', 'PÃO'),
+  
+  b = c('R$ 0', 'R$ 15', 'R$ 35'),
+  
+  c = c('R$ 15', 'R$ 35', 'R$ 60'),
+  
+  d = c('R$ 15', 'R$ 20', 'R$ 25'))
+
+knitr::kable(cronograma, 
+             
+             escape = FALSE,
+    
+             format = 'html',
+             
+             col.names = c('PRODUTO', 'PREÇO DO INSUMO (custo de produção)', 
+                           
+                           'PREÇO DO PRODUTO (preço de venda)', 
+                           
+                           'VALOR ADICIONADO (valor agregado)'),
+             
+             align = c('c', 'c', 'c', 'c')) %>%
+  
+  kable_styling(bootstrap_options = 'striped')
+  
+
+```
+
+
+- Este é, justamente, o exemplo já explicado de **erro de dupla contagem**.
+
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+```{r , results = 'asis', echo = F, warning = F, message = F, error = F, fig.align ='center', out.width = '100%'}
+
+
+library(magrittr)
+
+
+library(kableExtra)
+
+
+cronograma <- data.frame(
+  
+  a = c('TRIGO', 'FARINHA', 'PÃO'),
+  
+  b = c('R$ 0', 'R$ 15', 'R$ 35'),
+  
+  c = c('R$ 15', 'R$ 35', 'R$ 60'),
+  
+  d = c('R$ 15', 'R$ 20', 'R$ 25'))
+
+knitr::kable(cronograma, 
+             
+             escape = FALSE,
+    
+             format = 'html',
+             
+             col.names = c('PRODUTO', 'PREÇO DO INSUMO (custo de produção)', 
+                           
+                           'PREÇO DO PRODUTO (preço de venda)', 
+                           
+                           'VALOR ADICIONADO (valor agregado)'),
+             
+             align = c('c', 'c', 'c', 'c')) %>%
+  
+  kable_styling(bootstrap_options = 'striped')
+  
+
+```
+
+
+- Também podemos depreender que o valor total do processo produtivo do único bem final 
+do exemplo, o pão, já leva em consideração todos os valores adicionados em cada processo produtivo 
+(sendo que, no caso do trigo, o valor adicionado é o próprio valor de venda pois não há custo de 
+produção);
+
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+```{r , results = 'asis', echo = F, warning = F, message = F, error = F, fig.align ='center', out.width = '100%'}
+
+
+library(magrittr)
+
+
+library(kableExtra)
+
+
+cronograma <- data.frame(
+  
+  a = c('TRIGO', 'FARINHA', 'PÃO'),
+  
+  b = c('R$ 0', 'R$ 15', 'R$ 35'),
+  
+  c = c('R$ 15', 'R$ 35', 'R$ 60'),
+  
+  d = c('R$ 15', 'R$ 20', 'R$ 25'))
+
+knitr::kable(cronograma, 
+             
+             escape = FALSE,
+    
+             format = 'html',
+             
+             col.names = c('PRODUTO', 'PREÇO DO INSUMO (custo de produção)', 
+                           
+                           'PREÇO DO PRODUTO (preço de venda)', 
+                           
+                           'VALOR ADICIONADO (valor agregado)'),
+             
+             align = c('c', 'c', 'c', 'c')) %>%
+  
+  kable_styling(bootstrap_options = 'striped')
+  
+
+```
+
+
+- Assim, ao mesmo tempo que todas as contribuições para produção em cada processo produtivo são 
+consideradas, não incorremos no erro da dupla contagem. Neste contexto, acabamos de representar uma nova **abordagem para cálculo do produto agregado**, calculada a partir da **soma do 
+valor adicionado em cada processo de produção**.
+  
+  
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+- Em uma economia real não existem apenas três processos, mas uma **infinidade processos de produção
+de diferentes setores econômicos**. Isto pode dificultar a definição de qual produto é intermediário 
+e qual produto é final;
+
+<br>
+
+- Uma maneira alternativa de mensurar o **Produto Agregado** é utilizar a referida **soma dos valor 
+adicionados (ou, valores agregados)**.
+
+
+
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+- Uma vez entendido o conceito de produto agregado, pode-se passar à explicação de renda agregada;
+
+- **Renda Agregada: Corresponde a soma de valores (R$) de todas as remuneração dos fatores de
+produção em uma determinada economia**;
+
+- Inicialmente este conceito é pouco esclarecedor e uma revisão de algumas definições microeconômicas 
+são necessárias para seu melhor entendimento.
+
+---
+class: inverse
+<div style="text-align: justify">
+
+
+## REVISÃO DE MICROECONOMIA
+
+
+- Os FATORES DE PRODUÇÃO são os recursos (ou insumos) utilizados no processo de produção, exemplo:
+
+<br>
+
+_Para produzir, o dono de uma empresa precisa escolher um local para realizar as atividades (esse 
+local é um recurso), pessoas para executar as atividades (esses trabalhadores são recursos), o dono 
+da empresa pode realizar um empréstimo para comprar uma máquina (este dinheiro é um recurso). Estas 
+são escolhas mínimas de um empresário (e sua administração também é um recurso)._
+
+
+---
+class: inverse
+<div style="text-align: justify">
+
+
+## REVISÃO DE MICROECONOMIA
+
+- Por sua vez, o detentores dos recursos (ou insumos) devem ser remunerados pela utilização e a 
+remuneração de cada fato de produção recebe um nome diferente, são eles:
+
+    - A remuneração pelo USO DO LOCAL (capital físico) é o ALUGUEL;
+    - A remuneração pelo USO DO TRABALHO é o SALÁRIO;
+    - A remuneração pelo USO DO EMPRÉSTIMO (capital monetário) é o JUROS;
+    - A remuneração pelo USO DA ADMINISTRAÇÃO (RISCO) é o LUCRO.
+
+
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+- **Renda Agregada (RA)**: soma de valores (R$) de 
+todas as remuneração dos fatores de produção em uma determinada economia;
+  
+  
+$$RA = \sum_{}^{}Aluguéis + \sum_{}^{}Salários + \sum_{}^{}Juros + \sum_{}^{}Lucros$$
+$Aluguéis$: remuneração pelo uso do capital físico;
+  
+$Salários$: remuneração pelo uso do trabalho;
+  
+$Juros$: remuneração pelo uso do capital monetário;
+  
+$Lucros$: remuneração pelo uso da administração.
+  
+  
+---
+<div style="text-align: justify">
+
+## IDENTIDADES MACROECONÔMICAS
+
+- Como se pode depreender, o valor agregado em um processo de produção corresponde ao valor 
+necessário para remunerar todos os envolvidos na etapa produtiva;
+
+
+- Portanto, a **renda de cada processo de produção é igual ao valor agregado em cada processo de 
+produção**;
+
+
+- Com base no descrito, a associação entre produto e renda se torna imediata.
+
+
+---
+<div style="text-align: justify">
+
+## IDENTIDADES MACROECONÔMICAS
+
+- **PRODUTO AGREGADO (Abordagem 1)**: Soma de todos os valores (R$) dos bens finais produzidos em uma 
+economia em um período;
+
+
+- **PRODUTO AGREGADO (Abordagem 2): Soma de todos os valores agregados (R$) em uma economia em um 
+período**;
+
+
+- **RENDA AGREGADA (Abordagem 1)**: Soma de valores (R$) de todas as remuneração dos fatores de 
+produção em uma determinada economia;
+
+
+- **RENDA AGREGADA (Abordagem 2): Soma de todos os valores agregados (R$) em uma economia em um 
+período**;
+
+
+---
+class: inverse, center, middle 
+
+## PRODUTO AGREGADO <br> = <br> RENDA AGREGADA
+
+---
+<div style="text-align: justify">
+
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+- Agora, basta compreendermos o último conceito inicial de macroeconomia, mais especificamente, o 
+de **demanda agregada**;
+
+
+- **Demanda Agregada corresponde a soma dos valores (R$) de todos os consumos de bens finais realizados
+em uma economia em determinado período de tempo;**
+
+
+- Este conceito é imediato e também **pode ser associado aos conceitos de produto agregado e renda 
+agregada**.
+
+
+---
+<div style="text-align: justify">
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+- Para **consumir** um bem (ou serviço) final é necessário **alocar a renda** para pagar a transação.
+
+  - Os donos de locais conseguem pagar o consumo com as rendas de aluguéis;
+  
+	- Os trabalhadores conseguem pagar o consumo com as rendas de salários;
+	
+	- Os banqueiros conseguem pagar o consumo com as rendas de juros;
+	
+	- Os empresários conseguem pagar o consumo com as rendas de lucros.
+	
+	
+---
+<div style="text-align: justify">
+
+## IDENTIDADES MACROECONÔMICAS
+
+
+- Supondo que toda a renda conseguida seja alocada em consumo de bens finais, 
+tem-se a principal identidade contábil macroeconômica (não se trata de uma relação 
+de causa e efeito, mas apenas de uma identidade de valores):
+
+---
+class:inverse, center, middle
+
+## PRODUTO AGREGADO <br> = <br> RENDA AGREGADA <br> = <br> DEMANDA AGREGADA
+
+---
+<div style="text-align: justify">
+
+## IDENTIDADES MACROECONÔMICAS
+
+- Devido a identidade contábil, pode-se afirmar que é possível mensurar o produto agregado por meio 
+de 3 óticas: 
+
+  - **Ótica do Produto**: Soma dos bens finais produzidos em um país em um determinado período de tempo;
+  
+  - **Ótica da Renda**: Soma das rendas obtidos a partir do uso dos fatores de produção de um país em 
+  um determinado período de tempo;
+  
+  - **Ótica da Demanda**: soma de todos os consumos de bens e serviços finais de uma economia em um 
+  determinado período de tempo. 
+  
+  
+---
+class: inverse, center, middle 
+name: pib
+
+
+## PRODUTO INTERNO BRUTO </br> (PIB)
+
+
+---
+<div style="text-align: justify">
+
+
+## PRODUTO INTERNO BRUTO (PIB)
+
+- O conceito de **Produto Interno Bruto (PIB)** é largamente comentado no nosso dia a dia e, como se
+pode esperar, está intimamente associado ao conceito de **Produto Agregado**. Antes de realizar esta
+associação é necessário compreender dois conceitos adicionais.
+
+
+---
+<div style="text-align: justify">
+
+
+## PRODUTO INTERNO BRUTO (PIB)
+
+
+  - **Residentes**: Território geográfico em que o interesse econômico do agente é predominante (por
+  exemplo, uma empresa cuja matriz é brasileira e, além disso, opera dentro do território nacional 
+  é considerada residente no Brasil);
+  
+  - **Não Residentes**: Território geográfico em que o interesse econômico não é predominante (por
+  exemplo, uma empresa brasileira cuja matriz é brasileira e, além disso, possui uma filial operando 
+  em outro país é considerada residente no Brasil).
+  
+  
+---
+<div style="text-align: justify">
+
+
+## PRODUTO INTERNO BRUTO (PIB)
+
+- Assim, o **Produto Interno Bruto** corresponde a uma **abordagem do cálculo do produto agregado** em 
+que não são discriminados quais os fatores de produção residentes e quais os fatores de produção não 
+residentes (**o foco está no território nacional**);
+
+
+- Obviamente, é chamado **interno** pois o **valor agregado foi gerado por fatores de produção em 
+operação no território brasileiro** (sem ser necessariamente de brasileiros, isto é, sem ser de 
+residentes). 
+
+
+---
+<div style="text-align: justify">
+
+
+## PRODUTO INTERNO BRUTO (PIB)
+
+
+- Por seu turno, o **Produto Nacional Bruto** (mais chamado de **Renda Nacional Bruta**) corresponde 
+a uma abordagem do cálculo do produto agregado em que são discriminados quais os fatores de produção
+residentes e quais os fatores de produção não residentes;
+
+
+- Neste caso, é considerado apenas os fatores de produção de residentes, mesmo que estes fatores de 
+produção não estejam operando no Brasil.
+
+
+---
+<div style="text-align: justify">
+
+
+## PRODUTO INTERNO BRUTO (PIB)
+
+
+```{r , results = 'asis', echo = F, warning = F, message = F, error = F, fig.align ='center', out.width = '100%'}
+
+
+library(magrittr)
+
+
+library(kableExtra)
+
+
+cronograma <- data.frame(
+  
+  a = c('FOCO', 'FOCO'),
+  
+  b = c('Considera todos os fatores de produção em operação no território nacional', 
+        
+        'Portanto, não leva em consideração a residência'),
+  
+  c = c('Considera apenas os fatores de produção de residentes em operação', 
+        
+        'Portanto, não levam em consideração se operam no território nacional'))
+
+knitr::kable(cronograma, 
+             
+             escape = FALSE,
+    
+             format = 'html',
+             
+             col.names = c('',
+                           
+                           'PRODUTO INTERNO BRUTO', 
+                           
+                           'PRODUTO NACIONAL BRUTO'),
+             
+             align = c('l', 'l')) %>%
+  
+  kable_styling(bootstrap_options = 'striped')
+  
+
+```
+
+  
+---
+class: inverse, center, middle 
+name: fcr_simplificado
+
+
+## FLUXO CIRCULAR DA RENDA </br> (SIMPLIFICADO)
+
+
+---
+<div style="text-align: justify">
+
+
+## FLUXO CIRCULAR DA RENDA (SIMPLIFICADO)
+
+
+- O **Fluxo Circular da Renda** é um instrumento didático complementar aos 
+conceitos básicos apresentados na apresentação da identidade macroeconômica
+desta aula;
+
+
+- Além de apresentar as relações acima, são adicionadas informações sobre a 
+participação de alguns setores institucionais;
+
+
+- **Fluxo Circular da Renda: Diagrama que possui o objetivo de identificar quais
+as principais transações econômicas (que foram originadas no processo de 
+produção) realizadas entre os setores institucionais.**
+
+---
+<div style="text-align: justify">
+
+
+## FLUXO CIRCULAR DA RENDA (SIMPLIFICADO)
+
+- Mais uma vez, o conceito de Fluxo Circular da Renda não se explica por si só. Torna-se necessário 
+realizar algumas definições adicionais. Quais sejam:
+
+
+- **Unidade Institucional**: Unidade econômica que pode contrair ativos e/ou passivos ao 
+realizar alguma atividade econômica e que também pode realizar transações com outras unidades 
+institucionais;
+
+
+- **Setor Institucional**: Agrupamento de unidades institucionais que possuem o mesmo comportamento, 
+função e objetivos econômicos.
+
+
+
+---
+<div style="text-align: justify">
+
+
+## FLUXO CIRCULAR DA RENDA (SIMPLIFICADO)
+
+- Por uma classificação mais teórica, existem 4 setores institucionais:
+
+
+- **FAMÍLIAS**: são indivíduos (ou grupos de indivíduos) que obtêm a sua renda sem serem 
+inscritas no Cadastro Nacional de Pessoa Jurídica (CNPJ), ou seja, são majoritariamente pessoas 
+físicas. Em geral, são os assalariados, trabalhadores autônomos;
+
+
+
+- **EMPRESAS**: As empresas são unidades legais (a existência é reconhecida em lei, 
+independente dos seus controladores), ou seja, são pessoas jurídicas que desempenham a atividade
+de produção de bens e serviços no mercado. Isto é, deve haver uma prática de preços que seja 
+significativa.
+
+
+---
+<div style="text-align: justify">
+
+
+## FLUXO CIRCULAR DA RENDA (SIMPLIFICADO)
+
+
+- **GOVERNO**: Instituições públicas que desempenham a atividade de produção de bens e serviços não 
+mercantis voltados para à coletividade e/ou voltados à repatição da renda e do patrimônio. São bens 
+e serviços não mercantis aqueles que são prestados e/ou consumidos de forma gratuita ou semigratuita
+e, neste sentido, a principal fonte de obtenção de renda destas instituições consite no pagamento 
+obrigatório de tributos efetuado por todos os outros setores institucionais;
+
+---
+<div style="text-align: justify">
+
+
+## FLUXO CIRCULAR DA RENDA (SIMPLIFICADO)
+
+- **RESTO DO MUNDO**: Todos os setores institucionais podem ser nacionais (chamados de residentes) 
+ou estrangeiros (chamados de não residentes), estes setores institucionais impactam nas atividades 
+produtivas um dos outros e realizam transações entre si. É chamado de “resto do mundo” pois não 
+importa a nacionalidade dos estrangeiros (não residentes), basta saber que não são nacionais 
+(residentes)
+
+
+---
+<div style="text-align: justify">
+
+
+## FLUXO CIRCULAR DA RENDA (SIMPLIFICADO)
+
+- Uma vez realizadas todas essas definições, pode-se apresentar o Fluxo Circular da Renda;
+
+- Em sua versão simplificada, tem-se os seguintes pressupostos:
+
+	- **Existem apenas 2 setores institucionais: Famílias e Empresas**;
+
+	- **Toda a renda das famílias é alocada para consumo de bens e serviços finais**;
+	
+	- **O único fator de produção das empresas são os trabalhadores (famílias)**;
+
+
+---
+class: inverse
+
+
+## FLUXO CIRCULAR DA RENDA (SIMPLIFICADO)
+
+
+```{r, echo = F, warning = F, message = F, error = F, out.width= '80%', fig.align = 'center'}
+
+
+
+knitr::include_graphics('fcr_simplificado.png', dpi = 300)
+
+
+
+```
+
+
+
+---
+<div style="text-align: justify">
+
+
+## FLUXO CIRCULAR DA RENDA (SIMPLIFICADO)
+
+
+- As transações realizadas entre os setores institucionais famílias e empresas ocorrem em dois 
+ambientes específicos: o mercado de trabalho e o mercado de bens e serviços;
+
+
+- No mercado de trabalho as famílias são ofertantes de trabalho, as empresas são as demandantes de 
+ trabalho e o preço do trabalho é o salário que é negociado entre estes setores institucionais;
+
+
+- No mercado de bens (ou serviços), as empresas são ofertantes de produtos e as famílias são 
+consumidoras destes produtos, sendo que, para cada produto um determinado preço é negociado.
+
+
+---
+<div style="text-align: justify">
+
+
+## FLUXO CIRCULAR DA RENDA (SIMPLIFICADO)
+
+
+**EQUACIONAMENTO**
+
+
+- Combinando as óticas de Produto Agregado e Demanda Agregada, tem-se:
+  
+  
+$$Produto \ Interno \ Bruto \ (Y) = Consumo \ das \ Famílias \ (C)$$
+
+
+$Y$: Produto Interno Bruto;
+  
+$C$: Consumo das Famílias;
+
+
+---
+class: inverse, center, middle 
+name: fcr_ampliado
+
+
+## FLUXO CIRCULAR DA RENDA </br> (AMPLIADO)
+
+
+---
+<div style="text-align: justify">
+
+
+## FLUXO CIRCULAR DA RENDA (AMPLIADO)
+
+- Em sua versão ampliada, tem-se os seguintes pressupostos adicionados:
+
+	- **As famílias podem poupar parte da renda obtida a partir dos salários**;
+	
+	- **As famílias podem buscar empréstimos e financiamentos**. 
+
+	- **As empresas podem produzir bens e serviços finais e intermediários**;
+	
+	- **As empresas podem buscar empréstimos e financiamentos**. 
+
+
+---
+class: inverse
+
+
+## FLUXO CIRCULAR DA RENDA (AMPLIADO)
+
+
+```{r, echo = F, warning = F, message = F, error = F, out.width= '100%', fig.align = 'center'}
+
+
+
+knitr::include_graphics('fcr_ampliado.png', dpi = 300)
+
+
+
+```
+  
+  
+  
+---
+<div style="text-align: justify">
+
+
+## FLUXO CIRCULAR DA RENDA (AMPLIADO)
+
+
+- Ao adicionar tais premissas, cria-se um novo mercado em que as operações financeiras possuem o 
+potencial de impulsionar o crescimento econômico do país. Uma vez que recursos ociosos de agentes 
+superavitários são alocados para agentes deficitários (como é o caso do investimento em máquinas e 
+equipamentos a partir de empréstimos).
+
+
+---
+<div style="text-align: justify">
+
+
+## FLUXO CIRCULAR DA RENDA (AMPLIADO)
+
+
+- Combinando as óticas de Produto Agregado e Demanda Agregada, tem-se:
+  
+  
+$$PIB (Y) =$$
+$$Consumo \ das \ Famílias \ (C) + Investimento  \ das  \ Empresas \ (I)$$
+
+$Y$: Produto Interno Bruto;
+  
+$C$: Consumo das Famílias;
+  
+$I$: Investimento das Empresas;
+  
+  
+---
+<div style="text-align: justify">
+
+
+## FLUXO CIRCULAR DA RENDA (AMPLIADO)
+
+
+Ao adicionar os demais setores institucionais, tem-se:
+
+$$Y = C + I + G + X - M$$
+
+$Y$: Produto Interno Bruto;
+
+$C$: Consumo das Famílias;
+
+$I$: Investimento das Empresas;
+
+$G$: Gastos do Governo;
+
+$X$: Exportações;
+
+$M$: Importações.
+
+
+---
+class: inverse, center, middle 
+name: demanda
+
+
+## ANÁLISE DOS COMPONENTES DA DEMANDA
+
+
+---
+<div style="text-align: justify">
+
+
+## ANÁLISE DOS COMPONENTES DA DEMANDA
+
+
+- A análise do mercado de bens e serviços é chave para compreender o desempenho de uma economia em 
+um determinado período de tempo. A partir dele, podemos compreender qual a "conjuntura" enfrentada
+pela população;
+
+
+- Podemos avaliar o mercado a partir de duas perspectivas, chamadas de curto prazo e longo prazo. 
+Entenda a análise de curto prazo como a análise de uma foto, enquanto que, a análise longo prazo 
+corresponde ao vídeo. (A análise é cafona, mas ajuda pode ajudar a compreender as duas perspectivas)
+
+
+---
+<div style="text-align: justify">
+
+
+## ANÁLISE DOS COMPONENTES DA DEMANDA
+
+- No **curto prazo** podemos compreender que o mercado de bens e serviços ainda não está em equilíbrio, 
+ou seja, a oferta e a demanda por bens e serviços "podem ser ajustadas". Neste caso, um olhar atento 
+para os **componentes da demanda agregada** podem ser apreciados de modo a impactar a conjuntura;
+
+
+- Por sua vez, no **longo prazo**, entende-se que a oferta e a demanda por bens e serviços estão em 
+**equilíbrio** e, assim, a variável chave para compreender o desempenho da economia corresponde ao 
+**investimento agregado**;
+
+
+---
+<div style="text-align: justify">
+
+
+## ANÁLISE DOS COMPONENTES DA DEMANDA
+
+- **Esta disciplina tem por foco a análise de curto prazo**, ou seja, a análise de conjuntura econômica 
+de um determinado país (de modo a compreender o impacto na vida das pessoas e também, como percurso
+fundamental para todo administrador, o impacto dos ciclos econômicos nos negócios);
+
+- Neste sentido, iremos avaliar o gráfico com dos componentes da **demanda agregada** de maneira similar 
+ao que foi discutido no âmbito da análise do **Produto Interno Bruto** **(Y)**. Isto é, devemos 
+avaliar a tendência de cada variável com a finalidade de explicar como o PIB está sendo absorvido
+(ou incentivado) pelos componentes da demanda.
+
+
+---
+
+
+## O BRASIL EM PERSPECTIVA: COMPONENTES DA DEMANDA
+
+
+```{r, warning = F,message = F, error = F, echo = F, fig.align = 'center', dpi = 300}
+
+
+library(magrittr, include.only = '%>%')
+
+
+agregados_macroeconomicos <- sidrar::get_sidra(api = '/t/1621/n1/all/v/all/p/all/c11255/90707,93404,93405,93406,93407,93408/d/v584%202') %>%
+  
+  janitor::clean_names() %>%
+
+  dplyr::mutate(date = zoo::as.yearqtr(trimestre_codigo, format = '%Y %q')) %>%
+
+  dplyr::select(date, valor, setores_e_subsetores) %>%
+
+  dplyr::mutate(setores_e_subsetores = dplyr::case_when(setores_e_subsetores == 'PIB a preços de mercado' ~ 'PIB a preços de mercado (Y)',
+
+                                                        setores_e_subsetores == 'Despesa de consumo das famílias' ~ 'Consumo das Famílias (C)',
+
+                                                        setores_e_subsetores == 'Formação bruta de capital fixo' ~ 'Investimento Privado (I)',
+
+                                                        setores_e_subsetores == 'Despesa de consumo da administração pública' ~ 'Gastos do Governo (G)',
+
+                                                        setores_e_subsetores == 'Exportação de bens e serviços' ~ 'Exportações (X)',
+
+                                                        setores_e_subsetores == 'Importação de bens e serviços (-)' ~ 'Importações (M)')) 
+
+
+componentes_demanda <- agregados_macroeconomicos %>%
+
+  dplyr::filter(date > zoo::as.yearqtr(2004, Q1)) %>%
+  
+  dplyr::rename('Componente' = setores_e_subsetores,
+                
+                'Data' = date, 
+                
+                'Valor' = valor) %>% 
+
+  ggplot2::ggplot() +
+
+  ggplot2::geom_line(mapping = ggplot2::aes(x = Data, y = Valor, colour = Componente),
+
+                     size = 0.5) +
+
+  ggplot2::geom_point(mapping = ggplot2::aes(x = Data, y = Valor, colour = Componente),
+                      
+                      size = 0.75) +
+
+  ggplot2::scale_x_continuous(breaks = seq(1996,2020, 2)) +
+
+  ggplot2::labs(title = 'Componenetes da Demanda Agregada (Brasil)',
+                
+                colour = '',
+
+                x = 'Trimestres',
+
+                y = 'Índice (média de 1995 = 100)') +
+  
+  xaringanthemer::theme_xaringan(text_font_size = 15,
+                                 
+                                 title_font_size = 20) 
+  
+
+componentes_demanda <- plotly::ggplotly(componentes_demanda) %>% 
+  
+  plotly::layout(legend = list(orientation = 'h', y = -0.3))
+
+
+widgetframe::frameWidget(componentes_demanda, width = '100%', height = '100%')
+
+  
+  
+```  
+  
+  
+  
+---
+
+
+## O BRASIL EM PERSPECTIVA: CRESCIMENTO x RECESSÃO
+
+
+```{r, warning = F,message = F, error = F, echo = F, fig.align = 'center', dpi = 300}
+
+
+componentes_demanda <- agregados_macroeconomicos %>%
+
+  dplyr::filter(date > zoo::as.yearqtr(2004, Q1)) %>%
+  
+  dplyr::rename('Componente' = setores_e_subsetores,
+                
+                'Data' = date, 
+                
+                'Valor' = valor) %>% 
+
+  ggplot2::ggplot() +
+
+  ggplot2::geom_line(mapping = ggplot2::aes(x = Data, y = Valor, colour = Componente),
+
+                     size = 0.5) +
+
+  ggplot2::geom_point(mapping = ggplot2::aes(x = Data, y = Valor, colour = Componente),
+                      
+                      size = 0.75) +
+
+  ggplot2::scale_x_continuous(breaks = seq(1996,2020, 2)) +
+
+  ggplot2::labs(title = 'Componenetes da Demanda Agregada (Brasil)',
+                
+                colour = '',
+
+                x = 'Trimestres',
+
+                y = 'Índice (média de 1995 = 100)') +
+  
+  xaringanthemer::theme_xaringan(text_font_size = 15,
+                                 
+                                 title_font_size = 20) +
+  
+  ggplot2::annotate(geom = 'rect',
+                    
+                    xmin = zoo::as.yearqtr('200501', format = '%Y %q'),
+                    
+                    xmax = zoo::as.yearqtr('200704', format = '%Y %q'),
+                    
+                    ymin = 95, ymax = 350,
+                    
+                    fill = '#1090A0', alpha = 0.2) +
+  
+   ggplot2::annotate(geom = 'rect',
+                    
+                    xmin = zoo::as.yearqtr('201501', format = '%Y %q'),
+                    
+                    xmax = zoo::as.yearqtr('201601', format = '%Y %q'),
+                    
+                    ymin = 95, ymax = 350,
+                    
+                    fill = '#BA5450', alpha = 0.2) 
+  
+
+componentes_demanda <- plotly::ggplotly(componentes_demanda) %>% 
+  
+  plotly::layout(legend = list(orientation = 'h', y = -0.3))
+
+
+widgetframe::frameWidget(componentes_demanda, width = '100%', height = '100%')
+
+  
+  
+```  
+  
+
+---
+class: inverse, center, middle 
+name: conjuntura
+
+
+## ANÁLISE DE INDICADORES DE CONJUNTURA
+  
+  
+---
+<div style="text-align: justify">
+
+
+## ANÁLISE DE INDICADORES DE CONJUNTURA
+
+
+- Como discutido, no curto prazo pode haver um descompasso no mercado de bens e serviços (desequilíbrio
+entre oferta e demanda). Assim, é sempre relevante avaliar a conjuntura econômica a partir das duas
+óticas (mais uma vez, oferta e demanda);
+
+
+- Existem uma série de indicadores relevantes para compreender a conjuntura no curto prazo e com frequência 
+mensal. Assim, estes indicadores podem ser utilizados para se buscar prever os agregados macroeconômicos: PIB, Consumo das Famílias, 
+Investimento das Empresas, Gastos do Governo, Exportações e Importações.
+ 
+ 
+---
+<div style="text-align: justify">
+
+
+## ANÁLISE DE INDICADORES DE CONJUNTURA
+
+- Indicadores de Oferta:
+ 
+  - **Índice de Atividade Econômica do Banco Central (IBC-Br)**;
+ 
+  - **Pesquisa Industrial Mensal Produção Física (PIM-PF)**.
+ 
+- Indicadores de Demanda:
+
+  - **Pesquisa Mensal do Comércio (PMC)**;
+  
+  - **Pesquisa Mensal de Serviços (PMS)**.
+
+---
+<div style="text-align: justify">
+
+
+## ANÁLISE DE INDICADORES DE CONJUNTURA (INDICADOR DE OFERTA)
+
+- Índice de Atividade Econômica do Banco Central (**IBC-Br**):
+
+  - Corresponde a um **índice de volume de produção geral**. 
+
+  - São considerados apenas **alguns produtos da agropecuária, indústria e serviços**;
+  
+  
+---
+<div style="text-align: justify">
+
+
+## ANÁLISE DE INDICADORES DE CONJUNTURA (INDICADOR DE OFERTA)
+
+
+- Índice de Atividade Econômica do Banco Central (**IBC-Br**):
+
+  - Os produtos são selecionados com a finalidade de **representar o desempenho geral da economia**;
+  
+  - Possui **frequência mensal** (contribui para o entendimento do PIB que, por sua vez, possui 
+  frequência trimestral);
+  
+  - **Banco Central do Brasil (BCB)**.
+  
+  
+---
+
+
+## O BRASIL EM PERSPECTIVA: IBC-BR
+
+
+```{r, warning = F,message = F, error = F, echo = F, fig.align = 'center', dpi = 300}
+
+
+`%>%` <- magrittr::`%>%`
+
+
+ibc_br_sa <- BETS::BETSget(24364, data.frame = T) %>% 
+  
+  dplyr::rename('Data' = date,
+                
+                'Valor' = value) %>% 
+
+  ggplot2::ggplot() +
+
+  ggplot2::geom_line(mapping = ggplot2::aes(x = Data, y = Valor),
+                     
+                     colour = '#23395b',
+                     
+                     size = .5) +
+
+  ggplot2::geom_point(mapping = ggplot2::aes(x = Data, y = Valor),
+                      
+                      colour = '#23395b',
+                      
+                      size = .75) +
+
+  ggplot2::labs(title = 'Índice de Atividade Econômica do Banco Central (IBC-Br)',
+                
+                x = 'Meses',
+                
+                y = 'Índice (2002 = 100 com ajuste sazonal)',
+                
+                caption = 'Dados: IBGE.') +
+  
+xaringanthemer::theme_xaringan(text_font_size = 15,
+                               
+                               title_font_size = 20)
+  
+  
+ibc_br_sa <- plotly::ggplotly(ibc_br_sa)
+
+
+widgetframe::frameWidget(ibc_br_sa, width = '100%', height = '100%')
+
+
+
+
+
+```
+
+
+---
+<div style="text-align: justify">
+
+
+## ANÁLISE DE INDICADORES DE CONJUNTURA (INDICADOR DE OFERTA)
+
+- Pesquisa Industrial Mensal Produção Física (**PIM-PF**):
+
+  - Corresponde a um **índice de valor adicionado** da atividade produtiva industrial (apenas 
+  indústrias extrativas e indústrias de transformação);
+  
+  - É segmentado em categorias econômicas, isto é, **bens de capital (máquinas e equipamentos)**, 
+  **bens intermediários (matéria prima)** e **bens de Consumo (bens finais)**;
+  
+
+---
+<div style="text-align: justify">
+
+
+## ANÁLISE DE INDICADORES DE CONJUNTURA (INDICADOR DE OFERTA)
+
+- Pesquisa Industrial Mensal Produção Física (**PIM-PF**):
+  
+  - Possui **frequência mensal** (contribui para o entendimento do PIB que, por sua vez, possui 
+  frequência trimestral);
+  
+  - **Instituto Brasileiro de Geografia e Estatística (IBGE)**.
+  
+  
+---
+
+
+## O BRASIL EM PERSPECTIVA: PIM-PF
+
+
+```{r, warning = F,message = F, error = F, echo = F, fig.align = 'center', dpi = 300}
+
+
+pim_sa <- sidrar::get_sidra(api = '/t/3651/n1/all/v/3134/p/all/c543/129278,129283,129300/d/v3134%201',
+                                           
+                         period = as.Date('2020-04-01')) %>% 
+  
+  janitor::clean_names() %>%
+  
+  dplyr::mutate(date = zoo::as.yearmon(mes_codigo, format = '%Y %m')) %>% 
+  
+  dplyr::select(date, valor, grandes_categorias_economicas) %>% 
+  
+  dplyr::rename('Componente' = grandes_categorias_economicas) %>% 
+  
+  dplyr::mutate(Componente = dplyr::case_when(Componente == '1 Bens de capital' ~ 'Bens de capital',
+                                              
+                                              Componente == '2 Bens intermediários' ~ 'Bens intermediários',
+                                              
+                                              Componente == '3 Bens de consumo' ~ 'Bens de consumo')) %>%
+  
+  dplyr::rename('Data' = date,
+                'Valor' = valor) %>% 
+  
+  ggplot2::ggplot() +
+
+  ggplot2::geom_line(mapping = ggplot2::aes(x = Data, y = Valor, colour = Componente),
+
+                     size = 0.5) +
+
+  ggplot2::geom_point(mapping = ggplot2::aes(x = Data, y = Valor, colour = Componente),
+                      
+                      size = 0.75) +
+
+  ggplot2::labs(title = 'Pesquisa Industrial Mensal Produção Física (PIM-PF)',
+                
+                colour = '',
+
+                x = 'Meses',
+                
+                y = 'Índice (2012 = 100 com ajuste sazonal)') +
+  
+  ggplot2::scale_x_continuous(limits = c(2002, 2021)) +
+  
+  xaringanthemer::theme_xaringan(text_font_size = 15,
+                                 
+                                 title_font_size = 20) 
+  
+
+pim_sa <- plotly::ggplotly(pim_sa) %>% 
+  
+  plotly::layout(legend = list(orientation = 'h', y = -0.3))
+
+
+widgetframe::frameWidget(pim_sa, width = '100%', height = '100%')
+
+
+
+```
+---
+<div style="text-align: justify">
+
+
+## ANÁLISE DE INDICADORES DE CONJUNTURA (INDICADOR DE DEMANDA)
+
+
+- Pesquisa Mensal de Serviços (**PMS**):
+
+  - Corresponde a um **índice do comportamento conjuntural** dos principais segmentos de **atividades
+  de serviços** (volume de vendas e receita de vendas);
+  
+  - Leva em consideração os segmentos de atividades de serviços;
+  
+---
+<div style="text-align: justify">
+
+
+## ANÁLISE DE INDICADORES DE CONJUNTURA (INDICADOR DE DEMANDA)
+
+
+- Pesquisa Mensal de Serviços (**PMS**):
+
+  
+  - Possui **frequência mensal** (contribui para o entendimento dos componentes da demanda);
+  
+  - **Instituto Brasileiro de Geografia e Estatística (IBGE)**.
+  
+  
+---
+
+
+## O BRASIL EM PERSPECTIVA: PMS
+
+
+```{r, warning = F,message = F, error = F, echo = F, fig.align = 'center', dpi = 300}
+
+
+pms_sa <- sidrar::get_sidra(api = '/t/6442/n1/all/v/all/p/all/c11046/40312/d/v8676%201,v8677%201',
+                                           
+                         period = as.Date('2020-04-01')) %>%
+  
+  janitor::clean_names() %>%
+  
+  dplyr::mutate(date = zoo::as.yearmon(mes_codigo, format = '%Y %m')) %>% 
+  
+  dplyr::select(date, valor, variavel) %>% 
+  
+  dplyr::rename('Componente' = variavel) %>% 
+  
+  dplyr::mutate(Componente = dplyr::case_when(Componente == 'Índice de receita nominal de serviços' ~ 'Receita nominal',
+                                              
+                                              Componente == 'Índice de volume de serviços' ~ 'Volume')) %>% 
+  
+  ggplot2::ggplot() +
+
+  ggplot2::geom_line(mapping = ggplot2::aes(x = date, y = valor, colour = Componente),
+
+                     size = 0.5) +
+
+  ggplot2::geom_point(mapping = ggplot2::aes(x = date, y = valor, colour = Componente),
+                      
+                      size = 0.75) +
+
+  ggplot2::labs(title = 'Pesquisa Mensal de Serviços (PMS)',
+                
+                colour = '',
+
+                x = 'Meses',
+                
+                y = 'Índice (2014 = 100 com ajuste sazonal)') +
+  
+  xaringanthemer::theme_xaringan(text_font_size = 15,
+                                 
+                                 title_font_size = 20) 
+  
+
+pms_sa <- plotly::ggplotly(pms_sa) %>% 
+  
+  plotly::layout(legend = list(orientation = 'h', y = -0.3))
+
+
+widgetframe::frameWidget(pms_sa, width = '100%', height = '100%')
+
+
+
+```
+
+
+---
+<div style="text-align: justify">
+
+
+## ANÁLISE DE INDICADORES DE CONJUNTURA (INDICADOR DE DEMANDA)
+
+- Pesquisa Mensal de Comércio (**PMC**):
+
+  - Corresponde a um **índice do comportamento conjuntural** dos principais segmentos do **comércio
+  varejista** (volume de vendas e receita de vendas);
+  
+  - Leva em consideração o chamado **comércio restrito** (comércio sem os setores de construção civil e
+  indústria automobilística) e o **comércio ampliado** (sem as referidas exclusões);
+  
+---
+<div style="text-align: justify">
+
+
+## ANÁLISE DE INDICADORES DE CONJUNTURA (INDICADOR DE DEMANDA)
+
+- Pesquisa Mensal de Comércio (**PMC**):
+
+  
+  - Possui **frequência mensal** (contribui para o entendimento dos componentes da demanda);
+  
+  - **Instituto Brasileiro de Geografia e Estatística (IBGE)**.
+  
+  
+---
+
+
+## O BRASIL EM PERSPECTIVA: PMC RESTRITO
+
+
+```{r, warning = F,message = F, error = F, echo = F, fig.align = 'center', dpi = 300}
+
+
+pmc_sa <- sidrar::get_sidra(api = '/t/3416/n1/all/v/all/p/all/c11046/40312/d/v564%201,v565%201',
+                                           
+                         period = as.Date('2020-04-01')) %>%
+  
+  janitor::clean_names() %>%
+  
+  dplyr::mutate(date = zoo::as.yearmon(mes_codigo, format = '%Y %m')) %>% 
+  
+  dplyr::select(date, valor, variavel) %>% 
+  
+  dplyr::rename('Componente' = variavel) %>% 
+  
+  dplyr::mutate(Componente = dplyr::case_when(Componente == 'Índice de receita nominal de vendas no comércio varejista' ~ 'Receita nominal',
+                                              
+                                              Componente == 'Índice de volume de vendas no comércio varejista' ~ 'Volume')) %>% 
+  
+  ggplot2::ggplot() +
+
+  ggplot2::geom_line(mapping = ggplot2::aes(x = date, y = valor, colour = Componente),
+
+                     size = 0.5) +
+
+  ggplot2::geom_point(mapping = ggplot2::aes(x = date, y = valor, colour = Componente),
+                      
+                      size = 0.75) +
+
+  ggplot2::labs(title = 'Pesquisa Mensal de Comércio - PMC (Restrito)',
+                
+                colour = '',
+
+                x = 'Meses',
+                
+                y = 'Índice (2014 = 100 com ajuste sazonal)') +
+  
+  ggplot2::scale_x_continuous(limits = c(2000, 2021)) +
+  
+  xaringanthemer::theme_xaringan(text_font_size = 15,
+                                 
+                                 title_font_size = 20) 
+  
+
+pmc_sa <- plotly::ggplotly(pmc_sa) %>% 
+  
+  plotly::layout(legend = list(orientation = 'h', y = -0.3))
+
+
+widgetframe::frameWidget(pmc_sa, width = '100%', height = '100%')
+
+
+
+```
+  
+  
+  
+---
+
+
+## O BRASIL EM PERSPECTIVA: PMC AMPLIADO
+
+
+```{r, warning = F,message = F, error = F, echo = F, fig.align = 'center', dpi = 300}
+
+
+pmc_sa <- sidrar::get_sidra(api = '/t/3417/n1/all/v/all/p/all/c11046/40312/d/v1186%201,v1190%201',
+                                           
+                         period = as.Date('2020-04-01')) %>%
+  
+  janitor::clean_names() %>%
+  
+  dplyr::mutate(date = zoo::as.yearmon(mes_codigo, format = '%Y %m')) %>% 
+  
+  dplyr::select(date, valor, variavel) %>% 
+  
+  dplyr::rename('Componente' = variavel) %>% 
+  
+  dplyr::mutate(Componente = dplyr::case_when(Componente == 'Índice de receita nominal de vendas no comércio varejista ampliado' ~ 'Receita nominal',
+                                              
+                                              Componente == 'Índice de volume de vendas no comércio varejista ampliado' ~ 'Volume')) %>% 
+  
+  ggplot2::ggplot() +
+
+  ggplot2::geom_line(mapping = ggplot2::aes(x = date, y = valor, colour = Componente),
+
+                     size = 0.5) +
+
+  ggplot2::geom_point(mapping = ggplot2::aes(x = date, y = valor, colour = Componente),
+                      
+                      size = 0.75) +
+
+  ggplot2::labs(title = 'Pesquisa Mensal de Comércio - PMC (Ampliado)',
+                
+                colour = '',
+
+                x = 'Meses',
+                
+                y = 'Índice (2014 = 100 com ajuste sazonal)') +
+  
+  ggplot2::scale_x_continuous(limits = c(2003, 2021)) +
+  
+  xaringanthemer::theme_xaringan(text_font_size = 15,
+                                 
+                                 title_font_size = 20) 
+  
+
+pmc_sa <- plotly::ggplotly(pmc_sa) %>% 
+  
+  plotly::layout(legend = list(orientation = 'h', y = -0.3))
+
+
+widgetframe::frameWidget(pmc_sa, width = '100%', height = '100%')
+
+
+
+```
+  
+  
+---
+class: inverse, center, middle 
+name: potencial
+
+## PIB POTENCIAL X PIB EFETIVO </br> (HIATO DO PRODUTO) 
+  
+---
+<div style="text-align: justify">
+
+## PIB POTENCIAL
+
+- Apesar de a economia tender ao equilíbrio no longo prazo (oferta agregada igual
+a demanda agregada), pode haver uma série de flutuações 
+em torno dessa tendência no curto prazo;
+
+- Entende-se que a oferta agregada no longo prazo corresponde a adequada 
+alocação de recursos de uma país, ou seja, a alocação de recursos que leva em consideração
+os recuros naturais disponíveis, investimento planejado em máquinas e 
+equipamentos, quantidade de trabalhadores dispostos a se empregarem, produtividade da 
+economia;
+
+- Assim, quando nos referimos ao produto agregado em equilíbrio (oferta agregada de 
+longo prazo), o chamamos de **PIB Potencial**.
+
+
+---
+<div style="text-align: justify">
+
+## PIB EFETIVO
+
+- Por sua vez, no curto prazo os produtores podem alterar a quantidade produzida 
+e acabam por deslocar a oferta agregada da tendência de longo prazo e, portanto, 
+deslocar a  oferta agregada de seu ótimo;
+
+- Este deslocamento em torno da oferta agregada de longo prazo depende principalmente
+da formação das expectativas dos agentes em relação ao estado da economia. Estas 
+flutuações em torno da tendência de longo prazo são chamadas de **ciclos econômicos**; 
+
+- Assim, denominamos de **PIB Efetivo** o produto agregado de curto prazo (quantidade 
+efetivamente produzida em decorrência dos ciclos econômicos).
+
+
+---
+<div style="text-align: justify">
+
+## HIATO DO PRODUTO
+
+- A partir dos conceitos de **PIB Potencial** e **PIB efetivo** conseguimos 
+compreender se a economia está demasiadamente aquecida, ou 
+se a economia está produzindo aquém do seu potencial;
+
+- Neste sentido, uma métrica relevante para se compreender o estado da economia 
+consiste em calcular a **diferença** entre o **PIB Potencial** e o **PIB Efetivo**,
+esta métrica é denominada de **Hiato do Produto**.
+
+$$Hiato \ do \ Produto = PIB \ Potencial - PIB \ Efetivo $$
+---
+<div style="text-align: justify">
+
+## HIATO DO PRODUTO
+
+- $PIB \ Potencial > PIB \ Efetivo \Rightarrow  Hiato \ do \ Produto > 0$
+  - A economia está aquecida. Produção maior que a tendência de longo prazo;
+
+- $PIB \ Potencial < PIB \ Efetivo \Rightarrow  Hiato \ do \ Produto < 0$
+  - A economia está aquém de seu potencial. Produção menor que a tendência de 
+  longo prazo;
+
+
+
+
+
+
+
+
+
+
+  
