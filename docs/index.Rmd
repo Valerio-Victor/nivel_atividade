@@ -1,5 +1,5 @@
 ---
-title: 'TEMA01 - NÍVEL DE ATIVIDADE'
+title: 'TEMA 01 - NÍVEL DE ATIVIDADE'
 subtitle: 'ECN001 - IEPG20'
 author: 'Prof. Dr. Victor Valerio'
 institute: 'UNIVERSIDADE FEDERAL DE ITAJUBÁ'
